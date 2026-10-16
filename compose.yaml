@@ -1,0 +1,34 @@
+# CLEAN ENVIRONMENT ONLY. Your existing Windows FalkorDB needs no Compose command.
+name: tracegraph-demo
+services:
+  falkordb:
+    image: ${FALKORDB_IMAGE:-falkordb/falkordb:latest}
+    volumes: [graph-data:/data]
+    # No host database ports: inaccessible from public interfaces.
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  backend:
+    build: ./backend
+    environment:
+      HOST: 0.0.0.0
+      PORT: 5000
+      FALKORDB_HOST: falkordb
+      FALKORDB_PORT: 6379
+      FALKORDB_GRAPH: tracegraph
+      CORS_ORIGIN: http://localhost:8080
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4.1-mini}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://api.openai.com/v1}
+    depends_on:
+      falkordb: {condition: service_healthy}
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports: [127.0.0.1:8080:80]
+    depends_on: [backend]
+volumes:
+  graph-data:

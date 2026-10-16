@@ -1,0 +1,25 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+*.rdb
+*.tsbuildinfo
+upload/
+artifacts/
+.playwright/
+
+.browser-runtime/
+.library-save/
+__pycache__/
+
+# Local backup copies
+*.before-*
+*.bak
+*.backup
+*.old
+
+# Test and local build artifacts
+coverage/
+.vite/

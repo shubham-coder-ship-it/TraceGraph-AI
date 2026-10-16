@@ -1,0 +1,18 @@
+{
+  "name": "tracegraph-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Evidence-first incident investigation for connected systems",
+  "scripts": {
+    "setup": "npm ci --prefix backend && npm ci --prefix frontend",
+    "dev": "node scripts/dev.mjs",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix backend && npm run build --prefix frontend",
+    "typecheck": "npm run typecheck --prefix backend && npm run typecheck --prefix frontend",
+    "test": "npm test --prefix backend",
+    "test:integration": "npm run test:integration --prefix backend",
+    "seed": "npm run seed --prefix backend",
+    "test:ui": "npm run test:ui --prefix frontend"
+  }
+}

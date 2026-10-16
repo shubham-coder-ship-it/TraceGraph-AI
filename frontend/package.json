@@ -1,0 +1,32 @@
+{
+  "name": "tracegraph-console",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview --host 127.0.0.1",
+    "test:ui": "node tests/smoke.mjs",
+    "test:layout": "node --test tests/graph-layout.test.mjs",
+    "test:graph-ui": "node tests/graph-ui.mjs"
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.0.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "playwright": "^1.62.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.0.0"
+  }
+}
