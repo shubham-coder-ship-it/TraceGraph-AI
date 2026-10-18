@@ -223,3 +223,12 @@ There is no deployed URL or demo recording from this task. Hosting credentials a
 All operational records are fictional Northstar Systems data. No production telemetry, ticket, chat or infrastructure integration is present. Confidence is heuristic, not calibrated. Model-provider behavior is covered by stubbed failure/shape tests, not a live paid API call. Investigation/memory writes span multiple operations; a failure after report saving can leave a report without its new memory. The single-writer demo uses MERGE/deterministic memory IDs but does not provision distributed uniqueness constraints. Large production graphs need identity constraints, indexed IDs, richer pagination, narrower deployment time windows, query-plan evaluation and retention policies. Memory review is a user label, not a factual verification mechanism.
 
 Future work: authenticated workspaces, telemetry timestamps and freshness checks, richer service-scoped memory retrieval, contradiction reconciliation, agent coordination, evaluation datasets and monitored production query budgets.
+## Live Demo
+
+- **Live Application:** https://tracegraphai.up.railway.app/
+- **Demo Video:** https://youtu.be/1-G7alMillY
+- **Source Code:** https://github.com/shubham-coder-ship-it/TraceGraph-AI
+
+TraceGraph AI is deployed on Railway and uses FalkorDB to investigate synthetic software incidents through connected evidence, service dependencies, historical incidents, runbooks, and persistent investigation memory.
+
+The demo uses synthetic data. Investigation results identify potential causes from available evidence; graph relationships alone do not prove causation.
